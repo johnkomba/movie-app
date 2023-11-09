@@ -54,7 +54,7 @@ The app should now be running on http://localhost:3000.
 - CSS
 - React Router
 - JSON Server
-###bContributing
+### Contributing
 We welcome contributions from the community. Please follow these steps:
 
 Fork the repository.
