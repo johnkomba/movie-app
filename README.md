@@ -57,11 +57,11 @@ The app should now be running on http://localhost:3000.
 ### Contributing
 We welcome contributions from the community. Please follow these steps:
 
-Fork the repository.
-Create a new branch for your feature or bug fix.
-Make the necessary changes.
-Test your changes thoroughly.
-Create a pull request.
+- Fork the repository.
+- Create a new branch for your feature or bug fix.
+- Make the necessary changes.
+- Test your changes thoroughly.
+- Create a pull request.
 
 ### License
 This project is licensed under the MIT License.
