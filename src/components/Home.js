@@ -8,7 +8,7 @@ function Home() {
 
   useEffect(() => {
     const apiKey = 'fa82ab71';
-    axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=movie&page=${page}`)
+    axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=movie&page=${page}&per_page=12`)
       .then(response => {
         setMovies(response.data.Search);
       })
@@ -19,11 +19,13 @@ function Home() {
 
   const handleNextPage = () => {
     setPage(prevPage => prevPage + 1);
+    window.scrollTo(0, 0); // Scroll to the top of the page
   };
 
   const handlePrevPage = () => {
     if (page > 1) {
       setPage(prevPage => prevPage - 1);
+      window.scrollTo(0, 0); // Scroll to the top of the page
     }
   };
 
@@ -34,12 +36,16 @@ function Home() {
         <p>Discover and explore a wide range of movies.</p>
       </div>
 
-      <div className="movie-list">
+      <div className="row row-cols-1 row-cols-md-3 g-4">
         {movies.map(movie => (
-          <div key={movie.imdbID} className="movie-card">
-            <img src={movie.Poster} alt={movie.Title} />
-            <h3>{movie.Title}</h3>
-            <p>Year: {movie.Year}</p>
+          <div key={movie.imdbID} className="col">
+            <div className="card">
+              <img src={movie.Poster} className="card-img-top img-fluid" alt={movie.Title} />
+              <div className="card-body">
+                <h5 className="card-title">{movie.Title}</h5>
+                <p className="card-text">Year: {movie.Year}</p>
+              </div>
+            </div>
           </div>
         ))}
       </div>

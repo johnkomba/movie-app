@@ -1,5 +1,5 @@
-
 import React, { useState } from 'react';
+import '../styles.css'; // Assuming you have a styles.css file for your custom styles
 
 function Search({ addToFavorites, addToWatchlist }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -9,7 +9,7 @@ function Search({ addToFavorites, addToWatchlist }) {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://www.omdbapi.com/?apikey=fa82ab71&s=${searchTerm}`);
+      const response = await fetch(`http://www.omdbapi.com/?apikey=fa82ab71&s=${searchTerm}&plot=full`);
       const data = await response.json();
       setSearchResults(data.Search || []);
     } catch (error) {
@@ -18,7 +18,7 @@ function Search({ addToFavorites, addToWatchlist }) {
   };
 
   return (
-    <div>
+    <div className="center-content"> {/* Added className for centering */}
       <h1>Search Movies</h1>
       <form onSubmit={handleSearch}>
         <input
@@ -35,6 +35,7 @@ function Search({ addToFavorites, addToWatchlist }) {
           <li key={movie.imdbID}>
             <h3>{movie.Title}</h3>
             <p>Year: {movie.Year}</p>
+            <img src={movie.Poster} alt={`${movie.Title} Poster`} /> {/* Added poster */}
             <button onClick={() => addToFavorites(movie)}>Add to Favorites</button>
             <button onClick={() => addToWatchlist(movie)}>Add to Watchlist</button>
           </li>

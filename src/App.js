@@ -37,6 +37,14 @@ function Navbar() {
   );
 }
 
+function Footer() {
+  return (
+    <footer className="bg-dark text-white text-center py-3">
+      <p>&copy; 2023 Komba Movies App. All Rights Reserved.</p>
+    </footer>
+  );
+}
+
 function App() {
   const [favorites, setFavorites] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
@@ -74,8 +82,11 @@ function App() {
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer /> 
     </Router>
+    
   );
 }
+
 
 export default App;
