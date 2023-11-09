@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Search from './components/Search';
@@ -6,6 +7,7 @@ import MovieDetail from './components/MovieDetail';
 import Favorites from './components/Favorites';
 import Watchlist from './components/Watchlist';
 import NotFound from './components/NotFound';
+
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -35,17 +37,41 @@ function Navbar() {
   );
 }
 
-
 function App() {
+  const [favorites, setFavorites] = useState([]);
+  const [watchlist, setWatchlist] = useState([]);
+
+  const addToFavorites = (movie) => {
+    setFavorites((prevFavorites) => [...prevFavorites, movie]);
+  };
+
+  const removeFromFavorites = (movie) => {
+    setFavorites((prevFavorites) => prevFavorites.filter((m) => m.imdbID !== movie.imdbID));
+  };
+
+  const addToWatchlist = (movie) => {
+    setWatchlist((prevWatchlist) => [...prevWatchlist, movie]);
+  };
+
+  const removeFromWatchlist = (movie) => {
+    setWatchlist((prevWatchlist) => prevWatchlist.filter((m) => m.imdbID !== movie.imdbID));
+  };
+
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/search" element={<Search />} />
+        <Route exact path="/" element={<Home addToFavorites={addToFavorites} addToWatchlist={addToWatchlist} />} />
+        <Route path="/search" element={<Search addToFavorites={addToFavorites} addToWatchlist={addToWatchlist} />} />
         <Route path="/movie/:id" element={<MovieDetail />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/watchlist" element={<Watchlist />} />
+        <Route
+          path="/favorites"
+          element={<Favorites favorites={favorites} removeFromFavorites={removeFromFavorites} />}
+        />
+        <Route
+          path="/watchlist"
+          element={<Watchlist watchlist={watchlist} removeFromWatchlist={removeFromWatchlist} />}
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

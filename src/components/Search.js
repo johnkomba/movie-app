@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 
-function Search() {
+function Search({ addToFavorites, addToWatchlist }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
@@ -34,6 +35,8 @@ function Search() {
           <li key={movie.imdbID}>
             <h3>{movie.Title}</h3>
             <p>Year: {movie.Year}</p>
+            <button onClick={() => addToFavorites(movie)}>Add to Favorites</button>
+            <button onClick={() => addToWatchlist(movie)}>Add to Watchlist</button>
           </li>
         ))}
       </ul>
