@@ -3,6 +3,7 @@ import React from 'react';
 
 function Favorites({ favorites, removeFromFavorites }) {
   return (
+    <div className="content">
     <div>
       <h1>Favorites</h1>
       <ul>
@@ -13,6 +14,7 @@ function Favorites({ favorites, removeFromFavorites }) {
           </li>
         ))}
       </ul>
+    </div>
     </div>
   );
 }

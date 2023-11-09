@@ -3,6 +3,7 @@ import React from 'react';
 
 function Watchlist({ watchlist, removeFromWatchlist }) {
   return (
+    <div className="content">
     <div>
       <h1>Watchlist</h1>
       <ul>
@@ -13,6 +14,7 @@ function Watchlist({ watchlist, removeFromWatchlist }) {
           </li>
         ))}
       </ul>
+    </div>
     </div>
   );
 }

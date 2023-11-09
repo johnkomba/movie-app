@@ -2,15 +2,10 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #edf3ec;
   }
   
-  header, footer {
-    background-color: #5abb2d;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-  }
+  
   
   ul {
     list-style: none;
@@ -54,20 +49,13 @@ body {
   .pagination button {
     margin: 0 5px;
   }
-  /* styles.css */
-
-/* Add your other styles here */
-
-button {
-  /* Add default button styles */
-}
 
 button.added {
-  background-color: green; /* Change the color when added */
+  background-color: green; 
 }
 
 button:hover {
-  background-color: lightgray; /* Change the color on hover */
+  background-color: rgb(115, 231, 20); 
 }
 .center-content {
   display: flex;
@@ -99,4 +87,35 @@ button:hover {
 .movie-list {
   overflow-y: auto;
   flex-grow: 1;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex-grow: 1;
+  height: 80vh ;
+}
+body.search-results {
+  min-height: 90vh; /* Set height to 90vh when there are search results */
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Change min-height to 100vh for full viewport height */
+}
+
+.footer {
+  margin-top: auto; /* Push the footer to the bottom */
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.content-search {
+  height: auto;
+  min-height: 70vh;
 }

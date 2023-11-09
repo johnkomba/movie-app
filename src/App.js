@@ -67,6 +67,7 @@ function App() {
   };
 
   return (
+    <div>
     <Router>
       <Navbar />
       <Routes>
@@ -83,8 +84,10 @@ function App() {
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer /> 
+      <Footer/>
     </Router>
+  
+    </div>
     
   );
 }
