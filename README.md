@@ -46,27 +46,7 @@ The app should now be running on http://localhost:3000.
 - Use the search feature to find specific movies.
 - Click on a movie to view its details.
 - Add movies to your favorites or watchlist.
-### Folder Structure
 
-komba-movies-app/
-├─ public/
-│  ├─ index.html
-│  └─ ...
-├─ src/
-│  ├─ components/
-│  │  ├─ Home.js
-│  │  ├─ Search.js
-│  │  ├─ MovieDetail.js
-│  │  ├─ Favorites.js
-│  │  ├─ Watchlist.js
-│  │  └─ NotFound.js
-│  ├─ App.js
-│  ├─ index.js
-│  └─ ...
-├─ styles.css
-├─ ...
-├─ package.json
-└─ ...
 ### Technologies Used
 - React
 - JavaScript
