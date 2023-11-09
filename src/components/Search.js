@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles.css'; // Assuming you have a styles.css file for your custom styles
+import '../styles.css'; 
 
 function Search({ addToFavorites, addToWatchlist }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -19,7 +19,7 @@ function Search({ addToFavorites, addToWatchlist }) {
 
   return (
     <div className="center-content"> {/* Added className for centering */}
-      <h1>Search Movies</h1>
+      <h1>Search Movies/Series</h1>
       <form onSubmit={handleSearch}>
         <input
           type="text"

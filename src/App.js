@@ -8,6 +8,7 @@ import Favorites from './components/Favorites';
 import Watchlist from './components/Watchlist';
 import NotFound from './components/NotFound';
 
+
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

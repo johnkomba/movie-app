@@ -8,23 +8,28 @@ function Home() {
 
   useEffect(() => {
     const apiKey = 'fa82ab71';
-    axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=movie&page=${page}&per_page=12`)
-      .then(response => {
-        setMovies(response.data.Search);
-      })
-      .catch(error => {
-        console.error('Error fetching movies:', error);
-      });
+
+    // Fetch two pages to get a total of 12 movies 
+    axios.all([
+      axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=movie&page=${page}`),
+      axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=movie&page=${page + 1}`)
+    ])
+    .then(axios.spread((response1, response2) => {
+      setMovies([...response1.data.Search, ...response2.data.Search]);
+    }))
+    .catch(error => {
+      console.error('Error fetching movies:', error);
+    });
   }, [page]);
 
   const handleNextPage = () => {
-    setPage(prevPage => prevPage + 1);
+    setPage(prevPage => prevPage + 2);
     window.scrollTo(0, 0); // Scroll to the top of the page
   };
 
   const handlePrevPage = () => {
-    if (page > 1) {
-      setPage(prevPage => prevPage - 1);
+    if (page > 2) {
+      setPage(prevPage => prevPage - 2);
       window.scrollTo(0, 0); // Scroll to the top of the page
     }
   };
