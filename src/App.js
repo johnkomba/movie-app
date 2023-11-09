@@ -1,23 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './Home';
-import Search from './Search';
-import MovieDetail from './MovieDetail';
-import Favorites from './Favorites';
-import Watchlist from './Watchlist';
-import NotFound from './NotFound';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import Search from './components/Search';
+import MovieDetail from './components/MovieDetail';
+import Favorites from './components/Favorites';
+import Watchlist from './components/Watchlist';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/search" component={Search} />
-        <Route path="/movie/:id" component={MovieDetail} />
-        <Route path="/favorites" component={Favorites} />
-        <Route path="/watchlist" component={Watchlist} />
-        <Route component={NotFound} />
-      </Switch>
+     <Routes>
+  <Route exact path="/" element={<Home />} />
+  <Route path="/search" element={<Search />} />
+  <Route path="/movie/:id" element={<MovieDetail />} />
+  <Route path="/favorites" element={<Favorites />} />
+  <Route path="/watchlist" element={<Watchlist />} />
+  <Route path="*" element={<NotFound />} />
+</Routes>
+
     </Router>
   );
 }
