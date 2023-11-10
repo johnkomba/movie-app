@@ -11,8 +11,8 @@ function Home() {
 
     // Fetch two pages to get a total of 12 movies 
     axios.all([
-      axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=movie&page=${page}`),
-      axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&s=movie&page=${page + 1}`)
+      axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&s=movie&page=${page}`),
+      axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&s=movie&page=${page + 1}`)
     ])
     .then(axios.spread((response1, response2) => {
       setMovies([...response1.data.Search, ...response2.data.Search]);

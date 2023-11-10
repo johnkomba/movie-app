@@ -9,7 +9,7 @@ function Search({ addToFavorites, addToWatchlist }) {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://www.omdbapi.com/?apikey=fa82ab71&s=${searchTerm}&plot=full`);
+      const response = await fetch(`https://www.omdbapi.com/?apikey=fa82ab71&s=${searchTerm}&plot=full`);
       const data = await response.json();
       setSearchResults(data.Search || []);
     } catch (error) {
